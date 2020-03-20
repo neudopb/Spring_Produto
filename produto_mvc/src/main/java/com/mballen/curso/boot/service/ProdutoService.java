@@ -30,7 +30,10 @@ public class ProdutoService {
 		this.produtoRepository.save(produtoBuscado);
 	}
 	
-	public void excluir(Long id) {}
+	public void excluir(Long id) throws Exception {
+		Produto produtoBuscado = this.buscarPorId(id);
+		this.produtoRepository.delete(produtoBuscado);
+	}
 	
 	public Produto buscarPorId(Long id) throws Exception {
 		Optional<Produto> produtoBuscado = this.produtoRepository.findById(id);

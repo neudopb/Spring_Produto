@@ -51,10 +51,10 @@ public class ProdutoController {
 	}
 	
 	@GetMapping("/excluir/{id}")
-	public String excluir(@PathVariable("id") Long id, ModelMap model) {
+	public String excluir(@PathVariable("id") Long id, ModelMap model) throws Exception {
 		service.excluir(id);
 		model.addAttribute("sucess", "Produto excluido com sucesso.");
-		return listar(model);
+		return "redirect:/produtos/listar";
 	}
 	
 }
